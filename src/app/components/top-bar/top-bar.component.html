@@ -1,0 +1,17 @@
+<div class="top-bar-container">
+  <a class="title" href="/">Diagram Drawer</a>
+  <div class="action-buttons" *ngIf="!isViewMode">
+    <button class="action" mat-button (click)="undo()" [disabled]="!drawedShapes.length">
+      <i class="material-icons">undo</i>
+    </button>
+    <button class="action" mat-button (click)="redo()" [disabled]="!undoList.length">
+      <i class="material-icons">redo</i>
+    </button>
+    <button class="action" mat-button (click)="erase()" [disabled]="!drawedShapes.length">
+      <i class="material-icons">delete</i>
+    </button>
+    <button class="save" mat-stroked-button (click)="save()" [disabled]="!drawedShapes.length">Save</button>
+    <button class="publish" mat-flat-button color="warn" (click)="save(true)" [disabled]="!isDrawingSaved()">Publish</button>
+    <input id="published-copy-link" type="text" [defaultValue]="getShareUrl()">
+  </div>
+</div>

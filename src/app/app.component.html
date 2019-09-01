@@ -1,0 +1,12 @@
+<div [hidden]="isLoading" class="app-container">
+  <top-bar></top-bar>
+  <div class="page-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<div *ngIf="isLoading" class="loader">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+</div>

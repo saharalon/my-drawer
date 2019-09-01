@@ -1,0 +1,49 @@
+$top-bar-height: 60px;
+
+.top-bar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: $top-bar-height;
+  padding: 16px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0px 1px 4px -2px rgb(151,151,156);
+}
+
+.title {
+  color: #000000;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.action-buttons > button {
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  margin-left: 8px;
+  line-height: 24px;
+  &.publish {
+    line-height: 25px;
+  }
+}
+
+.action {
+  padding: 0 4px;
+  min-width: 20px;
+}
+
+.disabled {
+  color: #cccccc;
+  pointer-events: none;
+}
+
+.publish {
+  background-color: #ef6906;
+  transform: translateY(-0.5px);
+}
+
+#published-copy-link {
+  position: absolute;
+  transform: translateY(-1000px);
+}

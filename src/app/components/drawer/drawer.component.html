@@ -1,0 +1,26 @@
+<div class="drawer-container" (click)="clickOutside($event)">
+  <div class="drawer-shapes" *ngIf="!isViewMode">
+    <div *ngFor="let shape of shapes; trackBy: trackByFn; index as i"
+         [ngClass]="'shape ' + shape"
+         title="Drag me"
+         [dndDraggable]="shapes[i]"
+         (dndStart)="onDragStart($event)"></div>
+  </div>
+  <div [ngClass]="{'drawer-pane': true, 'push-right': isViewMode}"
+       dndDropzone
+       (dndDrop)="onDrop($event)">
+    <div class="item" *ngFor="let dShape of drawedShapes; trackBy: trackByFn">
+      <div *ngIf="dShape.type !== 'line'"
+           [ngClass]="getDrawedShapeClass(dShape)"
+           [ngStyle]="dShape.style"
+           [attr.sid]="dShape.id"
+           title="Click me & another shape"
+           (click)="onDrawedShapeClick($event)">
+      </div>
+      <svg class="line" *ngIf="dShape.type === 'line'">
+        <line [attr.x1]="dShape.coords[0]" [attr.y1]="dShape.coords[1]"
+              [attr.x2]="dShape.coords[2]" [attr.y2]="dShape.coords[3]" />
+      </svg>
+    </div>
+  </div>
+</div>

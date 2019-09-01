@@ -1,0 +1,52 @@
+@import "components/top-bar/top-bar.component";
+
+.app-container {
+  width: 100%;
+  height: 100%;
+}
+
+.page-container {
+  width: 100%;
+  height: calc(100% - #{$top-bar-height});
+}
+
+$color: #333745;
+
+.loader {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dot {
+  height: 30px;
+  width: 30px;
+  background-color: $color;
+  margin: 10px;
+  border-radius: 50px;
+}
+.dot:nth-child(1) {
+  animation: bounce 1s linear infinite;
+}
+
+.dot:nth-child(2) {
+  animation: bounce 1s linear 0.3s infinite;
+}
+
+.dot:nth-child(3) {
+  animation: bounce 1s linear 0.6s infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(20px);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0.8;
+  }
+}
